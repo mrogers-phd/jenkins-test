@@ -5,6 +5,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building..."
+                docker system prune -a --force
+                ./build_image.sh
             }
         }
         stage('Test') {
